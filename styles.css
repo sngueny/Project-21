@@ -1,0 +1,212 @@
+:root {
+  --primary: #3B7A57; /* Forest green */
+  --secondary: #5F9EA0; /* Cadet blue */
+  --accent: #F08A5D; /* Coral */
+  --light: #F5F5DC; /* Beige */
+  --dark: #333333;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  background-color: #FAFAFA;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-light {
+  background-color: var(--light);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2C5E44;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #4F8486;
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+  background-color: #E07A4D;
+  transform: translateY(-2px);
+}
+
+.hero-carousel {
+  height: 80vh;
+}
+
+.hero-carousel .swiper-slide {
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-value {
+  height: 100%;
+  border-radius: 5px;
+  background-color: var(--primary);
+}
+
+.testimonial-card {
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+}
+
+.team-member {
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.project-card {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card {
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.donation-card {
+  transition: transform 0.3s ease;
+}
+
+.donation-card:hover {
+  transform: translateY(-5px);
+}
+
+footer {
+  background-color: var(--dark);
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--accent);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 60vh;
+  }
+
+  .hero-content {
+    bottom: 10%;
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+  }
+}
