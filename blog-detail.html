@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read full blog articles from Project 21 Kenya - Supporting refugees in the Kakuma refugee camp.">
+  <title>Blog Article | Project 21 Kenya</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="main-nav" class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="assets/images/logo.jpeg" alt="Project 21 Kenya" class="h-14 w-auto">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html#home" class="nav-link py-2 text-gray-700 font-medium">Home</a>
+          <a href="index.html#about" class="nav-link py-2 text-gray-700 font-medium">About</a>
+          <a href="index.html#projects" class="nav-link py-2 text-gray-700 font-medium">Projects</a>
+          <a href="index.html#blog" class="nav-link py-2 text-gray-700 font-medium">Blog</a>
+          <a href="index.html#donate" class="nav-link py-2 text-gray-700 font-medium">Donate</a>
+        </div>
+
+        <div class="hidden md:block">
+          <a href="index.html#donate" class="btn-accent rounded-full px-5 py-2 font-semibold">Donate Now</a>
+        </div>
+
+        <!-- Mobile Navigation Toggle -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-700">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+        <a href="index.html#home" class="block py-2 text-gray-700 font-medium border-b border-gray-200">Home</a>
+        <a href="index.html#about" class="block py-2 text-gray-700 font-medium border-b border-gray-200">About</a>
+        <a href="index.html#projects" class="block py-2 text-gray-700 font-medium border-b border-gray-200">Projects</a>
+        <a href="index.html#blog" class="block py-2 text-gray-700 font-medium border-b border-gray-200">Blog</a>
+        <a href="index.html#donate" class="block py-2 text-gray-700 font-medium border-b border-gray-200">Donate</a>
+        <a href="index.html#donate" class="block mt-4 btn-accent rounded-full px-5 py-2 font-semibold text-center">Donate Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Detail Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back Button -->
+      <a href="index.html#blog" class="inline-flex items-center text-primary hover:text-secondary mb-8 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Back to Blog
+      </a>
+
+      <!-- Article Header -->
+      <div class="mb-8">
+        <div class="flex flex-wrap items-center gap-4 mb-4">
+          <span id="article-category" class="text-xs font-semibold bg-blue-100 text-blue-800 py-1 px-3 rounded-full"></span>
+          <span id="article-date" class="text-sm text-gray-500"></span>
+        </div>
+        <h1 id="article-title" class="text-3xl md:text-4xl font-bold text-gray-800 mb-6"></h1>
+        <div class="flex items-center text-sm text-gray-600">
+          <i class="fas fa-user mr-2"></i>
+          <span>By Project 21 Kenya Team</span>
+        </div>
+      </div>
+
+      <!-- Featured Image -->
+      <div class="mb-8">
+        <img id="article-image" src="" alt="" class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg">
+      </div>
+
+      <!-- Article Content -->
+      <div id="article-content" class="prose prose-lg max-w-none mb-12">
+        <!-- Content will be loaded dynamically -->
+      </div>
+
+      <!-- Social Share & Like Section -->
+      <div class="border-t border-b border-gray-200 py-8 mb-12">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <!-- Like Button -->
+          <div class="flex items-center gap-4">
+            <button id="like-btn" class="flex items-center gap-2 text-gray-600 hover:text-red-500 transition-colors">
+              <i id="like-icon" class="far fa-heart text-xl"></i>
+              <span id="like-count" class="font-medium">0</span>
+              <span>Likes</span>
+            </button>
+          </div>
+
+          <!-- Share Buttons -->
+          <div class="flex items-center gap-4">
+            <span class="text-gray-600 font-medium">Share:</span>
+            <button id="share-facebook" class="text-blue-600 hover:text-blue-800 transition-colors">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </button>
+            <button id="share-twitter" class="text-blue-400 hover:text-blue-600 transition-colors">
+              <i class="fab fa-twitter text-xl"></i>
+            </button>
+            <button id="share-linkedin" class="text-blue-700 hover:text-blue-900 transition-colors">
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </button>
+            <button id="share-copy" class="text-gray-600 hover:text-gray-800 transition-colors">
+              <i class="fas fa-link text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="bg-gray-50 rounded-xl p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">Comments</h3>
+
+        <!-- Comment Form -->
+        <div class="mb-8">
+          <form id="comment-form" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" id="comment-name" placeholder="Your Name" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+              <input type="email" id="comment-email" placeholder="Your Email" required
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <textarea id="comment-text" placeholder="Share your thoughts..." rows="4" required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+            <button type="submit" class="btn-primary px-6 py-3 font-semibold rounded-lg">
+              Post Comment
+            </button>
+          </form>
+        </div>
+
+        <!-- Comments List -->
+        <div id="comments-list" class="space-y-6">
+          <!-- Comments will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Column 1: Logo and Description -->
+        <div class="md:col-span-2">
+          <img src="assets/images/logo.jpeg" alt="Project 21 Kenya" class="h-12 w-auto mb-4">
+          <p class="text-gray-300 mb-4">Project 21 Kenya is dedicated to supporting refugees in the Kakuma refugee camp through education, vocational training, and basic needs assistance.</p>
+          <div class="flex space-x-4">
+            <a href="javascript:void(0)" class="text-gray-300 hover:text-accent"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="text-gray-300 hover:text-accent"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="text-gray-300 hover:text-accent"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0)" class="text-gray-300 hover:text-accent"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html#about" class="text-gray-300 hover:text-accent">About Us</a></li>
+            <li><a href="index.html#projects" class="text-gray-300 hover:text-accent">Our Projects</a></li>
+            <li><a href="index.html#blog" class="text-gray-300 hover:text-accent">Blog</a></li>
+            <li><a href="index.html#donate" class="text-gray-300 hover:text-accent">Donate</a></li>
+            <li><button class="text-gray-300 hover:text-accent volunteer-btn">Volunteer</button></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact -->
+        <div>
+          <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
+              <span class="text-gray-300">Kakuma Refugee Camp, Hong Kong Market</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-3 text-accent"></i>
+              <span class="text-gray-300">+254 712 345 678</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-accent"></i>
+              <span class="text-gray-300">info@project21kenya.org</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">&copy; 2025 Project 21 Kenya. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Volunteer Modal -->
+  <div id="volunteer-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-primary">Volunteer With Us</h3>
+            <button class="text-gray-500 hover:text-gray-700 text-2xl" onclick="closeVolunteerModal()">&times;</button>
+          </div>
+          <form id="volunteer-form" action="#" method="POST" class="space-y-4">
+            <div>
+              <label for="volunteer-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+              <input type="text" id="volunteer-name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+              <label for="volunteer-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+              <input type="email" id="volunteer-email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+              <label for="volunteer-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <input type="tel" id="volunteer-phone" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+              <label for="volunteer-skills" class="block text-sm font-medium text-gray-700 mb-1">Skills & Interests</label>
+              <textarea id="volunteer-skills" name="skills" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tell us about your skills, experience, and areas of interest..."></textarea>
+            </div>
+            <div>
+              <label for="volunteer-availability" class="block text-sm font-medium text-gray-700 mb-1">Availability</label>
+              <select id="volunteer-availability" name="availability" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <option value="">Select availability</option>
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+                <option value="weekends">Weekends only</option>
+                <option value="remote">Remote only</option>
+                <option value="flexible">Flexible</option>
+              </select>
+            </div>
+            <div>
+              <label for="volunteer-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea id="volunteer-message" name="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Any additional information you'd like to share..."></textarea>
+            </div>
+            <div class="flex justify-end space-x-3 pt-4">
+              <button type="button" onclick="closeVolunteerModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium">Cancel</button>
+              <button type="submit" class="btn-primary px-6 py-2 font-semibold rounded-md">Submit Application</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-primary">Contact Us</h3>
+            <button class="text-gray-500 hover:text-gray-700 text-2xl" onclick="closeContactModal()">&times;</button>
+          </div>
+          <form id="contact-form" action="#" method="POST" class="space-y-4">
+            <div>
+              <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+              <input type="text" id="contact-name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+              <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+              <input type="email" id="contact-email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+              <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <input type="tel" id="contact-phone" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+            </div>
+            <div>
+              <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+              <select id="contact-subject" name="subject" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <option value="">Select subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="partnership">Partnership Opportunity</option>
+                <option value="donation">Donation Information</option>
+                <option value="volunteer">Volunteer Information</option>
+                <option value="media">Media Inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+              <textarea id="contact-message" name="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Please enter your message..."></textarea>
+            </div>
+            <div class="flex justify-end space-x-3 pt-4">
+              <button type="button" onclick="closeContactModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium">Cancel</button>
+              <button type="submit" class="btn-primary px-6 py-2 font-semibold rounded-md">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="blog-detail.js"></script>
+</body>
+</html>

@@ -144,3 +144,65 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// Modal Functions
+function showVolunteerModal() {
+  document.getElementById('volunteer-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVolunteerModal() {
+  document.getElementById('volunteer-modal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+function showContactModal() {
+  document.getElementById('contact-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeContactModal() {
+  document.getElementById('contact-modal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+// Event listeners for modal buttons
+document.querySelectorAll('.volunteer-btn').forEach(button => {
+  button.addEventListener('click', showVolunteerModal);
+});
+
+document.querySelectorAll('.contact-btn').forEach(button => {
+  button.addEventListener('click', showContactModal);
+});
+
+// Close modals when clicking outside
+document.getElementById('volunteer-modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('volunteer-modal')) {
+    closeVolunteerModal();
+  }
+});
+
+document.getElementById('contact-modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('contact-modal')) {
+    closeContactModal();
+  }
+});
+
+// Form submissions
+document.getElementById('volunteer-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  // In a real implementation, this would send data to a server
+  alert('Thank you for your interest in volunteering! We will review your application and get back to you soon.');
+  closeVolunteerModal();
+  // Reset form
+  e.target.reset();
+});
+
+document.getElementById('contact-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  // In a real implementation, this would send data to a server
+  alert('Thank you for your message! We will get back to you as soon as possible.');
+  closeContactModal();
+  // Reset form
+  e.target.reset();
+});
