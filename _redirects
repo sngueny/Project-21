@@ -1,0 +1,6 @@
+# Netlify redirects file
+# Ensure blog detail pages work with query parameters
+/blog-detail.html    /blog-detail.html   200
+
+# Redirect any old URLs if needed
+# /old-page    /new-page    301
