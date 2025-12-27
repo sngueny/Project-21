@@ -5,6 +5,30 @@ AOS.init({
   offset: 100,
 });
 
+// Function to update navigation indicator position
+function updateNavIndicator() {
+  const activeLink = document.querySelector('.nav-link.active');
+  const indicator = document.getElementById('nav-indicator');
+  const navContainer = document.querySelector('.hidden.md\\:flex.space-x-8');
+
+  if (activeLink && indicator && navContainer) {
+    const linkRect = activeLink.getBoundingClientRect();
+    const containerRect = navContainer.getBoundingClientRect();
+    
+    const left = linkRect.left - containerRect.left;
+    const width = linkRect.width;
+    
+    indicator.style.left = left + 'px';
+    indicator.style.width = width + 'px';
+  }
+}
+
+// Initialize indicator on load
+document.addEventListener('DOMContentLoaded', updateNavIndicator);
+
+// Update indicator on window resize
+window.addEventListener('resize', updateNavIndicator);
+
 // Initialize Hero Carousel
 const heroSwiper = new Swiper('.hero-carousel', {
   loop: true,
@@ -51,10 +75,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       // Update active nav link
       document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === targetId) {
-          link.classList.add('active');
-        }
+        link.classList.remove('text-primary');
+        link.classList.add('text-gray-700');
       });
+      const activeLink = document.querySelector(`.nav-link[href="${targetId}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+        activeLink.classList.remove('text-gray-700');
+        activeLink.classList.add('text-primary');
+      }
+      updateNavIndicator();
     }
   });
 });
@@ -129,20 +159,39 @@ donationTypeButtons.forEach(button => {
 
 // Update active navigation based on scroll position
 window.addEventListener('scroll', () => {
-  const scrollPosition = window.scrollY + 100;
+  const scrollPosition = window.scrollY;
 
   // Get all sections
   const sections = document.querySelectorAll('section');
 
-  // Check which section is currently in view
+  let closestSection = null;
+  let minDistance = Infinity;
+
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute('id');
+    const distance = Math.abs(scrollPosition - sectionTop);
 
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestSection = section;
     }
   });
+
+  if (closestSection) {
+    const sectionId = closestSection.getAttribute('id');
+    // Update active nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+      link.classList.remove('text-primary');
+      link.classList.add('text-gray-700');
+      if (link.getAttribute('href') === '#' + sectionId) {
+        link.classList.add('active');
+        link.classList.remove('text-gray-700');
+        link.classList.add('text-primary');
+      }
+    });
+    updateNavIndicator();
+  }
 });
 
 // Modal Functions
