@@ -8,8 +8,8 @@ AOS.init({
 // Blog data
 const blogPosts = {
   1: {
-    title: "Celebrating Our First Graduating Class of Solar Technicians",
-    category: "Success Stories",
+    title: "What is Project 21 Kenya?",
+    category: "Get to Know Us",
     categoryClass: "bg-blue-100 text-blue-800",
     date: "June 15, 2025",
     image: "https://images.unsplash.com/photo-1686213011376-d20df949af59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NjkwMjR8MHwxfHNlYXJjaHwzfHxTdHVkZW50JTIwZ3JhZHVhdGlvbiUyMGNlcmVtb255fGVufDB8fHx8MTc1NTc5MTgyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
